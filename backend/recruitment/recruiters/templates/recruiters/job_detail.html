@@ -1,0 +1,162 @@
+{% extends "users/layout.html" %} {% load static %} {% block content %}
+<br /><br />
+<style>
+  .section__job-details {
+    margin-bottom: 40px;
+    background: #fff;
+    padding: 20px;
+  }
+
+  .job__tools {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: 768px) {
+    .job__tools {
+      justify-content: right;
+    }
+  }
+
+  .job__tools li {
+    list-style: none;
+    text-align: left;
+    margin: 6px;
+  }
+
+  .job__tools li a {
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 3px;
+    display: inline-block;
+    color: #fff;
+  }
+
+  .job-btn1 {
+    background: #85f969;
+    border: 1px solid transparent;
+  }
+
+  .job-btn1:hover {
+    color: #85f969;
+    background: #fff;
+    border: 1px solid #85f969;
+    transition: .3s ease-in-out;
+  }
+
+  .job-btn2 {
+    background: #0e75b2;
+    border: 1px solid transparent;
+  }
+
+  .job-btn2:hover {
+    color: #0e75b2;
+    background: #fff;
+    border: 1px solid #0e75b2;
+    transition: .3s ease-in-out;
+  }
+
+  .job-btn3 {
+    background: #eeb31b;
+    border: 1px solid transparent;
+  }
+
+  .job-btn3:hover {
+    color: #eeb31b;
+    background: #fff;
+    border: 1px solid #eeb31b;
+    transition: .3s ease-in-out;
+  }
+
+  .job-btn4 {
+    color: #0e75b2 !important;
+    border: 1px solid #39f;
+  }
+
+  .job-btn4:hover {
+    color: #fff !important;
+    background: #39f;
+    border: 1px solid transparent;
+    transition: .3s ease-in-out;
+  }
+
+  .job-btn5 {
+    color: #fff !important;
+    border: 1px solid transparent;
+    background: rgb(240, 41, 41);
+  }
+
+  .job-btn5:hover {
+    color: rgb(240, 41, 41) !important;
+    background: #fff;
+    border: 1px solid rgb(240, 41, 41);
+    transition: .3s ease-in-out;
+  }
+  
+</style>
+<div class="container">
+  {% if request.user == job.recruiter %}
+  <section class="row section__job-details">
+    <div>
+      {% if not job.link %}
+      <div class="job__editors">
+        <ul class="job__tools">
+          <li>
+            <a class="job-btn1" href="{% url 'applicant-list' job.slug %}"
+              ><b>Applicants List</b></a
+            >
+          </li>
+          <li>
+            <a class="job-btn2" href="{% url 'selected-list' job.slug %}"
+              ><b>Selected List</b></a
+            >
+          </li>
+          {% endif %}
+          <li>
+            <a class="job-btn3" href="{% url 'edit-job-post' job.slug %}"
+              ><b>Edit Job Post</b></a
+            >
+          </li>
+          <li>
+            <a class="job-btn5" href="{% url 'delete-job' job.slug %}">
+              <b>Delete Job</b>
+            </a>
+          </li>
+          <li>
+            <a class="job-btn4" href="{% url 'job-candidate-search' job.slug %}"
+              ><b>Candidates Breakdown</b></a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h3>
+            <b>{{job.title}} ({{job.job_type}})</b>
+          </h3>
+          <p style="font-size: 18px">{{job.company}}, {{job.location}}</p>
+          <hr my-2 />
+          <h3><b>Job Description</b></h3>
+          <p style="white-space: pre-wrap; font-size: 16px">
+            {{ job.description }}
+          </p>
+          <hr my-2 />
+          <h3>Skills Required:</h3>
+          <p>{{job.skills_req}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% else %}
+  <div class="row">
+    <div class="co">
+      <div class="card">
+        <div class="card-body">
+          <h3>You do not have access to this page!</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock content %}

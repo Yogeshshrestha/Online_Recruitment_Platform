@@ -1,0 +1,23 @@
+.form__group {
+
+	[type='text'], 
+	[type='email'], 
+	[type='password'], 
+	[type='tel'],
+	[type='url'] {
+		@include size(100%, auto);
+		@include animate(background color transition 0.3s ease-in-out);
+		padding: rem-calc(12px);
+		margin-bottom: rem-calc(15px);
+		color: $white;
+		background: $input-color;
+		transition: 0.3s ease-in-out;
+		border: 1px solid $light-blue;
+		border-radius: 8px;
+		outline: 1px solid transparent;
+
+		&:focus {
+			border-color: $primary-color;
+		}
+	}
+}

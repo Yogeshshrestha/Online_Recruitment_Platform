@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Page</title>
+	<link media="all" rel="stylesheet" href="css/main.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+	<script>
+		window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js" defer><\/script>')
+	</script>
+	<script src="js/jquery.main.js" defer></script>
+</head>
+<body>
+	<div id="wrapper">
+		<header id="header">
+			<div class="header-top">
+				<div class="container">
+					<ul>
+						<li><a href="#">Find ME Job’s Services</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">FAQ</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="header-bottom">
+				<div class="container header-wrap">
+					<div class="logo">
+						<a href="index.html"><img src="images/logo.png" alt="Logo"></a> 
+					</div>
+					<!-- to hide this navigation to user after login -->
+					<nav id="nav" class="mob-hide">
+						<ul class="nav-list hide">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="job.html">Jobs</a></li>
+							<li><a href="job.html">Candidates</a></li>
+							<li><a href="login.html">Login</a></li>
+							<li><a href="register.html">Register</a></li>
+						</ul>
+						<!-- to hide this navigation to candidates user -->
+						<ul class="nav-list candidate-hide user-hide mob-hide">
+							<li class="active"><a href="index.html">Home</a></li>
+							<li><a href="profile.html">Profile</a></li>
+							<li><a href="job.html">Candidates</a></li>
+							<li><a href="manage.html">Manage</a></li>
+							<li><a href="setting.html">Settings</a></li>
+							<div class="dropdown">
+								<a href="#" id="phoneType" class="dropdown__opener close"><span class="icon-profile"></span><span class="icon-down-arrow"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#"><h2>Yogesh bahadur Shrestha</h2></a></li>
+									<li><a href="setting.html">Settings</a></li>
+									<li><a href="#">Logout</a></li>
+								</ul>
+							</div>
+						</ul>
+						<!-- to hide this navigation to employer user -->
+						<ul class="nav-list employer-hide user-hide mob-hide">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="index.html">Profile</a></li>
+							<li><a href="job.html">Jobs</a></li>
+							<li><a href="manage.html">My Status</a></li>
+							<li><a href="setting.html">Settings</a></li>
+							<li><a href="#"><span class="icon-profile"></span><span class="icon-down-arrow"></span></a></li>
+						</ul>
+					</nav>
+
+					<!-- mobile navigation -->
+					<a href="#" class="menu__opener close">
+						<span class="icon-menu"></span>
+					</a>
+					<nav id="sideNav">
+						<a href="#" class="menu__opener close">
+							<span class="icon-cross"></span>
+						</a>
+						<ul class="side-nav-list hide">
+							<li><a href="#index.html">Home</a></li>
+							<li><a href="profile.html">Profile</a></li>
+							<li><a href="job.html">Candidates</a></li>
+							<li><a href="login.html">Login</a></li>
+							<li><a href="register.html">Register</a></li>
+						</ul>
+
+						<ul class="side-nav-list candidate-hide user-hide">
+							<li><a href="#"><span class="icon-profile"></span></a></li>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="profile.html">Profile</a></li>
+							<li><a href="job.html">Candidates</a></li>
+							<li><a href="manage.html">Manage</a></li>
+							<li><a href="setting.html">Settings</a></li>
+							<li><a href="#">LogOut</a></li>
+						</ul>
+
+						<ul class="side-nav-list employer-hide user-hide">
+							<li><a href="#"><span class="icon-profile"></span></a></li>
+							<li><a href="inde.html">Home</a></li>
+							<li><a href="profile.html">Profile</a></li>
+							<li><a href="job.html">Jobs</a></li>
+							<li><a href="manage.html">My Status</a></li>
+							<li><a href="setting.html">Settings</a></li>
+							<li><a href="#">LogOut</a></li>
+						</ul>
+					</nav>
+				</div>		
+			</div>
+		</header>
+		<main id="main">
+			<div class="container">
+				<section class="sec-1">
+					<div class="content">
+						<div class="content__info">
+							<h1>A Platform to Recruit talent</h1>
+							<p>Recruiting candidates is easier than ever with Find Me Job recruitment SaaS. Whether you work for a recruitment agency or in a human resources department, our cloud-based recruitment software is made for you. Start now!</p>
+							<a href="#">Start Hiring Now &#8594;</a>
+						</div>
+						<div class="content__image">
+							<img src="images/recruitment.png" alt="Requirement Platform">
+						</div>
+					</div>
+					<div class="content">
+						<div class="content__image">
+							<img src="images/recruitment_works.png" alt="Requirement Platform">
+						</div>
+						<div class="content__info">
+							<h1>Explore Our Requirement Software</h1>
+							<p>Find Me Job was designed to simplify your hiring process and save you valuable time by helping you choose the right candidates, manage your talent pool, strengthen team collaboration, and hire top talent.</p>
+							<a href="#">Explore Our System &#8594;</a>
+						</div>
+					</div>
+					<div class="content">
+						<div class="content__info">
+							<h1>Application Tracking System</h1>
+							<p> ATS streamlines the hiring process by helping recruiters create job postings, publishing them to company websites and job boards, screening applicants, tracking their status, storing their information, and simplifying the final steps of the hiring process when an offer is extended.</p>
+						</div>
+						<div class="content__image">
+							<img src="images/ats.png" alt="Requirement Platform">
+						</div>
+					</div>
+					<div class="content">
+						<div class="content__image">
+							<img src="images/automation.png" alt="Requirement Platform">
+						</div>
+						<div class="content__info">
+							<h1>Automation</h1>
+							<p>Recruitment process automation can help to lift productivity, get to the best candidates quicker, fill roles sooner and reduce hiring costs.</p>
+						</div>
+					</div>
+				</section>
+				<section class="sec-2">
+					<blockquote class="testimonials">
+						<img src="images/profile1.jpg" alt="Marina">
+						<h3>Marina larent</h3>
+						<strong>Human Resource Manager</strong>
+						<q><pre></pre>I am using Find Me Job platform to find the best candidates. i am so impressed with the sevices of this platform i recommend my friend and relatives to check this system.</q>
+					</blockquote>
+					<blockquote class="testimonials">
+						<img src="images/profile2.jpg" alt="Marina">
+						<h3>Marina larent</h3>
+						<strong>Senior Talent Acquisition Manpower</strong>
+						<q><pre></pre>I was having problem with recruiting candidates but after using this platform i have save the time in recruiting process. All thanks to its automation system that filter best candidates for me.</q>
+					</blockquote>
+					<blockquote class="testimonials">
+						<img src="images/profile3.jpg" alt="Marina">
+						<h3>Marina larent</h3>
+						<strong>Director of MRINetwork Forbes</strong>
+						<q><pre></pre>Now I have use this Find Me Job platform, my company's growth is increasing more faster than it use to be. This platforms help to hire best candidates for my company.</q>
+					</blockquote>
+				</section>
+				<section class="sec-3">
+					<div class="newsletter">
+						<h3>Sign up to Our Newsletter</h3>
+						<form id="newsLetter" class="form__group" action="POST">
+							<label for="emailId">Email Address</label>
+							<input id="emailId" type="Email" name="email" placeholder="Enter Your Email Address">
+							<div class="btn__holder"><button type="submit">Submit</button></div>
+						</form>
+					</div>
+				</section>		
+			</div>
+		</main>	
+		<footer id="footer">
+			<div class="footer-top">
+				<div class="container footer-wrap">	
+					<div class="logo">
+						<a href="index.html"><img src="images/logo.png" alt="Logo"> </a>
+					</div>
+					<div class="footer__content">
+						<nav class="footer__info employer__info">
+							<h3>Employers</h3>
+							<ul>
+								<li><a href="#">Register</a></li>
+								<li><a href="#">Login</a></li>
+								<li><a href="#">Search Candidates</a></li>
+								<li><a href="#">Automation</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</nav>
+						<nav class="footer__info candidates__info">
+							<h3>Candidate</h3>
+							<ul>
+								<li><a href="#">Register</a></li>
+								<li><a href="#">Login</a></li>
+								<li><a href="#">Search Jobs</a></li>
+								<li><a href="#">Find Me Job's Services</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</nav>
+						<div class="footer__info contact__info">
+							<h3>Contact Us</h3>
+							<dl>
+								<dt>Address</dt>
+								<dd><address><span class="icon-map"></span>
+									Manamaiju Kathmandu, 
+								Nepal</address></dd>
+								<dt>Phone</dt>
+								<dd><a href="tel:+9779861319308"><span class="icon-phone"></span>+977 9861319308</a></dd>
+								<dt>Email</dt>
+								<dd><a href="mailto:info@FindmeJob.com"><span class="icon-mail"></span>info@FindmeJob.com</a></dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="container footer-info">
+					<em>Privacy</em>
+					<em>Terms</em>
+					<em>&copy; 2022 All rights with <a href="index.html">Find Me Job</a></em>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>

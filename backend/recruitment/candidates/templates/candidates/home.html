@@ -1,0 +1,79 @@
+{% extends "users/layout.html" %} {% load static %} {% block content %}
+<br /><br />
+<div class="container job__container">
+  <section class="section__job-1">
+    <h3>Job By Catagories</h3>
+    <div class="job__catagories">
+      <ul class="job__catagory">
+        <h4>Banking Sector</h4>
+        <li><a href="#">Finance Advisour</a></li>
+        <li><a href="#">IBPS PO</a></li>
+        <li><a href="#">Auditors</a></li>
+        <li><a href="#">RBI Grade B</a></li>
+        <li><a href="#">SBI PO</a></li>
+      </ul>
+      <ul class="job__catagory">
+        <h4>Medical Sector</h4>
+        <li><a href="#">Clinical analyst</a></li>
+        <li><a href="#">Medical manager</a></li>
+        <li><a href="#">Programmer analyst</a></li>
+        <li><a href="#">Software engineer</a></li>
+      </ul>
+      <ul class="job__catagory">
+        <h4>Military Sector</h4>
+        <li><a href="#">Cyberwarfare engineer</a></li>
+        <li><a href="#">Geospatial imaging officer</a></li>
+        <li><a href="#">Intelligence specialist</a></li>
+      </ul>
+      <ul class="job__catagory">
+        <h4>Industry Sector</h4>
+        <li><a href="#">Ethical Hacker</a></li>
+        <li><a href="#">Software Engineering</a></li>
+        <li><a href="#">Network Administrator</a></li>
+        <li><a href="#">Full stack Develop</a></li>
+        <li><a href="#">Data Scientist</a></li>
+      </ul>
+    </div>
+  </section>
+  <section class="section__job-2">
+    <div class="col-sm-12 col-md-10 col-lg-8 mx-auto">
+      <h1>Search Jobs</h1>
+      <form
+        class="form-signin mt-4"
+        action="{% url 'job-search-list' %}"
+        method="get"
+      >
+        <div class="row job__search">
+          <div class="col-1">
+            <div class="form__group">
+              <input
+                name="p"
+                type="text"
+                class="form-control"
+                placeholder="Enter Job Title, Skills, Type or Company"
+              /><br />
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form__group">
+              <input
+                name="q"
+                type="text"
+                class="form-control"
+                placeholder="Enter Job Location"
+              /><br />
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form__group btn__holder">
+              <button class="btn btn-lg btn-warning btn-block" type="submit">
+                Search Jobs
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+{% endblock content %}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Manage</title>
+	<link media="all" rel="stylesheet" href="css/main.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+	<script>
+		window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js" defer><\/script>')
+	</script>
+	<script src="js/jquery.main.js" defer></script>
+</head>
+<body>
+	<div id="wrapper">
+		<header id="header">
+			<div class="header-top">
+				<div class="container">
+					<ul>
+						<li><a href="#">Find ME Job’s Services</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">FAQ</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="header-bottom">
+				<div class="container header-wrap">
+					<div class="logo">
+						<a href="index.html"><img src="images/logo.png" alt="Logo"></a> 
+					</div>
+					<!-- to hide this navigation to user after login -->
+					<nav id="nav" class="mob-hide">
+						<ul class="nav-list hide">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Jobs</a></li>
+							<li><a href="#">Candidates</a></li>
+							<li><a href="#">Login</a></li>
+							<li><a href="#">Register</a></li>
+						</ul>
+						<!-- to hide this navigation to candidates user -->
+						<ul class="nav-list candidate-hide user-hide mob-hide">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Candidates</a></li>
+							<li><a href="#">Manage</a></li>
+							<li><a href="#">Settings</a></li>
+							<div class="dropdown">
+								<a href="#" id="phoneType" class="dropdown__opener close"><span class="icon-profile"></span><span class="icon-down-arrow"></span></a>
+								<ul class="dropdown-menu">
+									<li class="selected"><a href="#"><h2>Name</h2></a></li>
+									<li><a href="#">Settings</a></li>
+									<li><a href="#">Logout</a></li>
+								</ul>
+							</div>
+						</ul>
+						<!-- to hide this navigation to employer user -->
+						<ul class="nav-list employer-hide user-hide mob-hide">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Jobs</a></li>
+							<li><a href="#">My Status</a></li>
+							<li><a href="#">Settings</a></li>
+							<li><a href="#"><span class="icon-profile"></span><span class="icon-down-arrow"></span></a></li>
+						</ul>
+					</nav>
+
+					<!-- mobile navigation -->
+					<a href="#" class="menu__opener close">
+						<span class="icon-menu"></span>
+					</a>
+					<nav id="sideNav">
+						<a href="#" class="menu__opener close">
+							<span class="icon-cross"></span>
+						</a>
+						<ul class="side-nav-list hide">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Candidates</a></li>
+							<li><a href="#">Login</a></li>
+							<li><a href="#">Register</a></li>
+						</ul>
+
+						<ul class="side-nav-list candidate-hide user-hide">
+							<li><a href="#"><span class="icon-profile"></span></a></li>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Candidates</a></li>
+							<li><a href="#">Manage</a></li>
+							<li><a href="#">Settings</a></li>
+							<li><a href="#">LogOut</a></li>
+						</ul>
+
+						<ul class="side-nav-list employer-hide user-hide">
+							<li><a href="#"><span class="icon-profile"></span></a></li>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Jobs</a></li>
+							<li><a href="#">My Status</a></li>
+							<li><a href="#">Settings</a></li>
+							<li><a href="#">LogOut</a></li>
+						</ul>
+					</nav>
+				</div>		
+			</div>
+		</header>
+		<main id="main">
+			<div class="container manage__container">
+				<section class="status__section">
+					<div class="mytabs">
+						<input type="radio" id="tab-all__jobs" name="mytabs" checked="checked">
+						<label for="tab-all__jobs">All Jobs</label>
+						<div class="tab">
+							<h2>All Jobs</h2>
+							<ul>
+								<li>astina ko job</li>
+								<li>ahile ko job</li>
+							</ul>
+						</div>
+						<input type="radio" id="tab-draft__jobs" name="mytabs" checked="checked">
+						<label for="tab-draft__jobs">Draft Jobs</label>
+						<div class="tab">
+							<h2>Draft Jobs</h2>
+							<ul>
+								<li>astina ko job</li>
+								<li>ahile ko job</li>
+							</ul>
+						</div>
+						<input type="radio" id="tab-pending__jobs" name="mytabs" checked="checked">
+						<label for="tab-pending__jobs">Pending Jobs</label>
+						<div class="tab">
+							<h2>Pending Jobs</h2>
+							<ul>
+								<li>astina ko job</li>
+								<li>ahile ko job</li>
+							</ul>
+						</div>
+						<input type="radio" id="tab-active__jobs" name="mytabs" checked="checked">
+						<label for="tab-active__jobs">Active jobs</label>
+						<div class="tab">
+							<h2>Active jobs</h2>
+							<ul>
+								<li>astina ko job</li>
+								<li>ahile ko job</li>
+							</ul>
+						</div>
+						<input type="radio" id="tab-expire__jobs" name="mytabs" checked="checked">
+						<label for="tab-expire__jobs">Expire jobs</label>
+						<div class="tab">
+							<h2>Expire jobs</h2>
+							<ul>
+								<li>astina ko job</li>
+								<li>ahile ko job</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section class="manage__section">
+					<div class="manage">
+						<a class="manage__list" href="#">
+							<h2>Current Pipeline</h2>
+							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit accusantium eveniet modi ad harum fugiat blanditiis praesentium iure tempora incidunt itaque deserunt dicta sint ipsa enim eius, error ducimus, quaerat?</p>
+						</a>
+						<a class="manage__list" href="#">
+							<h2>Candidates Breakdown</h2>
+							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit accusantium eveniet modi ad harum fugiat blanditiis praesentium iure tempora incidunt itaque deserunt dicta sint ipsa enim eius, error ducimus, quaerat?</p>
+						</a>
+						<a class="manage__list" href="#">
+							<h2>Send Email</h2>
+							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit accusantium eveniet modi ad harum fugiat blanditiis praesentium iure tempora incidunt itaque deserunt dicta sint ipsa enim eius, error ducimus, quaerat?</p>
+						</a>
+						<a class="manage__list" href="#">
+							<h2>Schedule Interview</h2>
+							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit accusantium eveniet modi ad harum fugiat blanditiis praesentium iure tempora incidunt itaque deserunt dicta sint ipsa enim eius, error ducimus, quaerat?</p>
+						</a>
+						<a class="manage__list" href="#">
+							<h2>Set Time Reminder</h2>
+							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit accusantium eveniet modi ad harum fugiat blanditiis praesentium iure tempora incidunt itaque deserunt dicta sint ipsa enim eius, error ducimus, quaerat?</p>
+						</a>
+					</div>
+				</section>
+			</div>
+		</main>	
+		<footer id="footer">
+			<div class="footer-top">
+				<div class="container footer-wrap">	
+					<div class="logo">
+						<a href="index.html"><img src="images/logo.png" alt="Logo"> </a>
+					</div>
+					<div class="footer__content">
+						<nav class="footer__info employer__info">
+							<h3>Employers</h3>
+							<ul>
+								<li><a href="#">Register</a></li>
+								<li><a href="#">Login</a></li>
+								<li><a href="#">Search Candidates</a></li>
+								<li><a href="#">Automation</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</nav>
+						<nav class="footer__info candidates__info">
+							<h3>Candidate</h3>
+							<ul>
+								<li><a href="#">Register</a></li>
+								<li><a href="#">Login</a></li>
+								<li><a href="#">Search Jobs</a></li>
+								<li><a href="#">Find Me Job's Services</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</nav>
+						<div class="footer__info contact__info">
+							<h3>Contact Us</h3>
+							<dl>
+								<dt>Address</dt>
+								<dd><address><span class="icon-map"></span>
+									Manamaiju Kathmandu, 
+								Nepal</address></dd>
+								<dt>Phone</dt>
+								<dd><a href="tel:+9779861319308"><span class="icon-phone"></span>+977 9861319308</a></dd>
+								<dt>Email</dt>
+								<dd><a href="mailto:info@FindmeJob.com"><span class="icon-mail"></span>info@FindmeJob.com</a></dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="container footer-info">
+					<em>Privacy</em>
+					<em>Terms</em>
+					<em>&copy; 2022 All rights with <a href="index.html">Find Me Job</a></em>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>

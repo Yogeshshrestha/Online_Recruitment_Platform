@@ -1,0 +1,131 @@
+{% extends "users/layout.html" %} {% load socialaccount %} {% block content %}
+<style>
+  .section__setting {
+    padding-bottom: 120px;
+  }
+
+  .icon-mail {
+    margin-right: 8px;
+  }
+
+  .btn {
+    margin-top: 10px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    background: #EEB31B;
+    color: #fff;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+  }
+
+  .btn:hover {
+    background: #fff;
+    color: #EEB31B;
+    border: 1px solid #EEB31B;
+    transition: .3s ease-in-out;
+  }
+
+  .text a {
+    text-decoration: none;
+    color: #0E75B2;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+  }
+
+  .text a:hover {
+    color: #EEB31B;
+    transition: .3s ease-in-out;
+  }
+
+  .privacy-text {
+    text-decoration: none;
+    color: #0E75B2;
+    display: block;
+  }
+
+  .privacy-text:hover {
+    color: #EEB31B;
+    transition: .3s ease-in-out;
+  }
+</style>
+<div class="container setting__container">
+  <section class="section__setting">
+    <div class="mytabs">
+      <div class="tab-info">
+        <input type="radio" id="tab-all__jobs" name="mytabs" checked="checked">
+        <label for="tab-all__jobs">Profile</label>
+        <div class="tab">
+          <h2>Profile</h2>
+          <p>Username: {{user.username}}</p>
+          <p>Email: {{user.email}}</p>
+        </div>
+      </div>
+      <div class="tab-info">
+        <input type="radio" id="tab-draft__jobs" name="mytabs" checked="checked">
+        <label for="tab-draft__jobs">Privacy</label>
+        <div class="tab">
+          <h2>Privacy</h2>
+          <a class="privacy-text" href="{% url 'privacy-policy' %}">Read Privacy and poilcy information</a>
+          <a class="privacy-text" href="{% url 'terms-of-service' %}">ReadTerms and conditions</a>
+          <p>Welcome to <b> Find Me Job</b>.</p>
+          <p>
+            <b>Find Me Job</b> (“us”, “we”, or “our”) operates
+            <b>recruitment.platform</b> (hereinafter referred to as <b>“Service”</b>).
+          </p>
+          <p>
+            Our Privacy Policy governs your visit to <b>recruitment.platform</b>, and explains
+            how we collect, safeguard and disclose information that results from your use
+            of our Service.
+          </p>
+          <p>
+            We use your data to provide and improve Service. By using Service, you agree
+            to the collection and use of information in accordance with this policy.
+            Unless otherwise defined in this Privacy Policy, the terms used in this
+            Privacy Policy have the same meanings as in our Terms and Conditions.
+          </p>
+        </div>
+      </div>
+      <div class="tab-info">
+        <input type="radio" id="tab-active__jobs" name="mytabs" checked="checked">
+        <label for="tab-active__jobs">Security and Login</label>
+        <div class="tab">
+          <h2>Security and Login</h2>
+          <p>Add/Change/Remove Email Using</p>
+          <a class="btn" href="{% provider_login_url 'google' process='connect' %}"><span
+            class="icon-mail"></span>Gmail</a>
+        </div>
+      </div>
+      <div class="tab-info">
+        <input type="radio" id="tab-expire__jobs" name="mytabs" checked="checked">
+        <label for="tab-expire__jobs">Account Setting</label>
+        <div class="tab">
+          <h2>Account Setting</h2>
+          <div class="card-body">
+            <form class="form-signin">
+              <div class="form-group">
+                {% if user.is_authenticated %}
+                <p class="text">Switch User as a Employer<a class="nav-item nav-link"
+                    href="{% url 'add-job' %}">Employers</a></p>
+                {% endif %}
+                <p class="text">Switch User as a Candidate<a class="nav-item nav-link"
+                    href="{% url 'home' %}">Candidates</a></p>
+                <h5">Link Your Social Media Accounts</h5>
+                  <p>
+                    <small>(If already connected, there is no need to do it
+                      again)</small>
+                  </p>
+                  <hr />
+                  <a class="btn" href="{% provider_login_url 'google' process='connect' %}"><span
+                      class="icon-mail"></span>Gmail</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

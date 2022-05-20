@@ -1,0 +1,19 @@
+.btn__holder {
+	[type="submit"],
+	[type="button"],
+	[type="applyNow"] {
+		@include animate(background color transistion 0.3s ease-in-out);
+		// margin-left: rem-calc(-45px);
+		padding: rem-calc(12px);
+		border-radius: 8px;
+		outline: 1px solid transparent;
+		border: 1px solid $light-blue;
+		background: $button-color;
+		color: $white;
+		transition: 0.3s ease-in-out;
+
+		&:hover {
+			background: $hover-color;
+		}
+	}
+}

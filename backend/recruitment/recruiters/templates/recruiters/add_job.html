@@ -1,0 +1,117 @@
+{% extends "users/layout.html" %} {% load static %} {% load crispy_forms_tags %}
+{% block content %} <br />
+<style>
+  .input__job {
+    /* width: 100%;
+    height: auto; */
+    -webkit-transition: background 0.3s ease-in-out, color 0.3s ease-in-out,
+      0.3s 0.3s ease-in-out, ease-in-out 0.3s ease-in-out,
+      -webkit-transition 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out,
+      0.3s 0.3s ease-in-out, ease-in-out 0.3s ease-in-out,
+      -webkit-transition 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out,
+      transition 0.3s ease-in-out, 0.3s 0.3s ease-in-out,
+      ease-in-out 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out,
+      transition 0.3s ease-in-out, 0.3s 0.3s ease-in-out,
+      ease-in-out 0.3s ease-in-out, -webkit-transition 0.3s ease-in-out;
+    padding: 0.75rem;
+    margin: 1rem 0;
+    color: #fff;
+    background: #05466d;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    border: 1px solid #39f;
+    border-radius: 3px;
+    outline: 1px solid transparent;
+    width: 100%;
+  }
+
+  .input__job:focus {
+    border-color: #0a0944;
+  }
+
+  .input-desc {
+    width: 100%;
+    height: 150px;
+  }
+
+  .section__job__post {
+    margin-bottom: 40px;
+    background: #fff;
+    padding: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .form__profile {
+      width: 50%;
+      padding-left: 20px;
+    }
+
+    .input__job {
+      width: 50%;
+    }
+
+    .input-desc {
+      width: 50%;
+      height: 150px;
+    }
+    .text {
+      width: 50%;
+    }
+
+    .btn__holder {
+      width: 50%;
+    }
+  }
+
+  .form__profile {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .btn-block {
+    padding: 6px;
+    margin: 0 6px;
+    border-radius: 6px;
+  }
+
+</style>
+<div class="container">
+  <section class="row section__job__post">
+    <div class="col">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h3>
+            <b>Add New Job Post</b>
+          </h3>
+          <span class="text"
+            ><p>
+              (Please read the helper texts provided with the fields carefully.
+              <br />Mistakes can make your job perform poorly!)
+            </p></span
+          >
+          <form
+            class="form-signin form__profile"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            {% csrf_token %}
+            <fieldset class="form-group">
+              <br />
+              {{ form|crispy }}
+              <p class="text">If you want candidates to apply on your company website rather than on our website, please provide the link where candidates can apply. Otherwise, please leave it blank or candidates would not be able to apply directly!</p>
+            </fieldset>
+            <div class="btn__holder form-group">
+              <button class="btn btn-lg btn-success btn-block" type="submit">
+                Post Job</button
+              ><br /><br />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock content %}

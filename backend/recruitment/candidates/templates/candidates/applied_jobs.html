@@ -1,0 +1,106 @@
+{% extends "users/layout.html" %} {% load static %} {% block content %}
+<br /><br />
+<style>
+  .section__job-3 {
+    display: block;
+  }
+  .show__job-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .show__jobs {
+    margin-bottom: 20px;
+  }
+
+  .job__list {
+    display:  block !important;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .job__list {
+    display:  block !important;
+    width: 30%;
+    }
+  }
+
+  .job__address,
+  .job__company {
+    margin-bottom: 8px;
+  }
+
+  .applyNow {
+    margin-right: 12px;
+  }
+
+  .card-footer span {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card-footer span b {
+    width: 50%;
+    text-align: center;
+  }
+
+  .btn-block {
+    padding: 4px;
+    border-radius: 3px;
+    margin: 6px;
+  }
+  .btn1 {
+    background: #EEB31B;
+    color: #fff !important;
+  }
+
+  .btn2 {
+    background: #0E75B2;
+    color: #fff !important;
+  }
+  .btn3 {
+    background: #85F969;
+    color: #fff !important;
+  }
+  .btn4 {
+    background: rgb(240, 41, 41);
+    color: #fff !important;
+  }
+</style>
+
+<div class="container job__container">
+  <section class="section__job-3">
+    <h3><b>Applied Jobs</b></h3>
+    <div class="show__job-list">
+    {% for job, status in zipped %}
+      <div class="job__list">
+        <div class="job-info">
+          <h3>{{job.job.title}}</h3>
+          <h4>({{job.job.job_type}})</h4>
+          <p>{{job.job.description|truncatewords:30}}</p>
+          <dt class="job__company">{{job.job.company}}</dt>
+          <address class="job__address"><span class="icon-map"></span>{{job.job.location}}</address>
+          <div class="btn__holder">
+            <a href="{% url 'job-detail' job.job.slug %}">View More</a>
+          </div>
+          <div class="card-footer">
+            {% if status == 0 %}
+            <span>Application Status:
+              <b class="btn3 btn-block">Selected</b></span>
+            {% elif status == 1%}
+            <span>Application Status:
+              <b class="btn2 btn-block">In Process</b></span>
+            {% else %}
+            <span>Application Status:
+              <b class="btn4 btn-block">Rejected</b></span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </section>  
+</div>
+{% endblock content %}
+</div>

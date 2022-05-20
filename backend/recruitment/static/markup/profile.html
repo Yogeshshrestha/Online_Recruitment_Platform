@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>profile</title>
+	<link media="all" rel="stylesheet" href="css/main.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+	<script>
+		window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js" defer><\/script>')
+	</script>
+	<script src="js/jquery.main.js" defer></script>
+</head>
+<body>
+	<div id="wrapper">
+		<header id="header">
+			<div class="header-top">
+				<div class="container">
+					<ul>
+						<li><a href="#">Find ME Job’s Services</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">FAQ</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="header-bottom">
+				<div class="container header-wrap">
+					<div class="logo">
+						<a href="index.html"><img src="images/logo.png" alt="Logo"></a> 
+					</div>
+					<!-- to hide this navigation to user after login -->
+					<nav id="nav" class="mob-hide">
+						<ul class="nav-list hide">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Jobs</a></li>
+							<li><a href="#">Candidates</a></li>
+							<li><a href="#">Login</a></li>
+							<li><a href="#">Register</a></li>
+						</ul>
+						<!-- to hide this navigation to candidates user -->
+						<ul class="nav-list candidate-hide user-hide mob-hide">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Candidates</a></li>
+							<li><a href="#">Manage</a></li>
+							<li><a href="#">Settings</a></li>
+							<li><a href="#"><span class="icon-profile"></span><span class="icon-down-arrow"></span></a></li>
+						</ul>
+						<!-- to hide this navigation to employer user -->
+						<ul class="nav-list employer-hide user-hide mob-hide">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Jobs</a></li>
+							<li><a href="#">My Status</a></li>
+							<li><a href="#">Settings</a></li>
+							<li><a href="#"><span class="icon-profile"></span><span class="icon-down-arrow"></span></a></li>
+						</ul>
+					</nav>
+
+					<!-- mobile navigation -->
+					<a href="#" class="menu__opener close">
+						<span class="icon-menu"></span>
+					</a>
+					<nav id="sideNav">
+						<a href="#" class="menu__opener close">
+							<span class="icon-cross"></span>
+						</a>
+						<ul class="side-nav-list hide">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Candidates</a></li>
+							<li><a href="#">Login</a></li>
+							<li><a href="#">Register</a></li>
+						</ul>
+
+						<ul class="side-nav-list candidate-hide user-hide">
+							<li><a href="#"><span class="icon-profile"></span></a></li>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Candidates</a></li>
+							<li><a href="#">Manage</a></li>
+							<li><a href="#">Settings</a></li>
+							<li><a href="#">LogOut</a></li>
+						</ul>
+
+						<ul class="side-nav-list employer-hide user-hide">
+							<li><a href="#"><span class="icon-profile"></span></a></li>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Jobs</a></li>
+							<li><a href="#">My Status</a></li>
+							<li><a href="#">Settings</a></li>
+							<li><a href="#">LogOut</a></li>
+						</ul>
+					</nav>
+				</div>		
+			</div>
+		</header>
+
+		<!-- profile body -->
+		<main id="main">
+			<div class="container">
+				<!-- for candidates users -->
+				<div class="profile__candidate">
+					<section class="sec__profile-1">
+						<div class="cover__image">
+							<img src="images/recruitment_works.png" alt="cover image">
+							<div class="editor">
+								<span class="icon-edit"></span>
+								<span class="icon-cross"></span>
+							</div>
+						</div>
+						<div class="profile__image">
+							<img src="images/profile3.jpg" alt="profile image">
+							<div class="editor">
+								<span class="icon-edit"></span>
+							</div>
+						</div>
+					</section>
+					<section class="sec__profile-2">
+						<div class="profile-content">
+							<div class="profile-info">
+								<h3>Hari Bahadur Shrestha</h3>
+								<dl>
+									<dt>Searching for a vue.js developer job</dt>
+									<dd><address>Manamaiju Kathmandu, Nepal</address></dd>
+									<dd><a href="tel:+9779861319308"><span class="icon-phone"></span>+977 9861319308</a></dd>
+									<dd><a href="mailto:Yogeshshrestha845@gmail.com"><span class="icon-mail"></span>yogeshshrestha845@gmail.com</a></dd>
+								</dl>
+							</div>
+							<div class="editor">
+								<span class="icon-edit"></span>
+								<span class="icon-cross"></span>
+							</div>
+						</div>
+						<div class="profile-content">
+							<div class="profile-info">
+								<h3>Personal Information</h3>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Reprehenderit nobis exercitationem hic nihil dignissimos dolor nemo rerum deleniti excepturi, ad, magnam modi, atque nostrum pariatur possimus culpa, accusamus est amet.</p>
+							</div>
+							<div class="editor">
+								<span class="icon-edit"></span>
+								<span class="icon-cross"></span>
+							</div>
+						</div>
+						<div class="profile-content">
+							<div class="profile-info">
+								<h3>Objectives</h3>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Reprehenderit nobis exercitationem hic nihil dignissimos dolor nemo rerum deleniti excepturi, ad, magnam modi, atque nostrum pariatur possimus culpa, accusamus est amet.</p>
+							</div>
+							<div class="editor">
+								<span class="icon-edit"></span>
+								<span class="icon-cross"></span>
+							</div>
+						</div>
+						<div class="profile-content">
+							<div class="profile-info">
+								<h3>Skills</h3>
+								<ul>
+									<li>Web desigining</li>
+									<li>Python</li>
+									<li>Java</li>
+								</ul>
+							</div>
+							<div class="editor">
+								<span class="icon-edit"></span>
+								<span class="icon-cross"></span>
+							</div>
+						</div>
+						<div class="profile-content">
+							<div class="profile-info">
+								<h3>Work Exprience</h3>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Reprehenderit nobis exercitationem hic nihil dignissimos dolor nemo rerum deleniti excepturi, ad, magnam modi, atque nostrum pariatur possimus culpa, accusamus est amet.</p>
+							</div>
+							<div class="editor">
+								<span class="icon-edit"></span>
+								<span class="icon-cross"></span>
+							</div>
+						</div>
+						<div class="profile-content">
+							<div class="profile-info">
+								<h3>Education</h3>
+								<dd>+2 Xaviour</dd>
+								<dd>BSC(hons) Herald</dd>
+							</div>
+							<div class="editor">
+								<span class="icon-edit"></span>
+								<span class="icon-cross"></span>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<!-- <form>
+					<label for="file-upload" class="custom-file-upload">
+						<span class="fa fa-cloud-upload"></span> Upload CV
+					</label>
+					<input id="file-upload" name='upload_cont_img' type="file" style="display:none;">
+				</form> -->
+
+				<!-- for employer users -->
+				<div class="profile__employer">
+					<section class="sec__profile-1">
+						<div class="cover__image">
+							<img src="images/recruitment_works.png" alt="cover image">
+							<div class="editor">
+								<span class="icon-edit"></span>
+								<span class="icon-cross"></span>
+							</div>
+						</div>
+						<div class="profile__image">
+							<img src="images/profile1.jpg" alt="profile image">
+							<div class="editor">
+								<span class="icon-edit"></span>
+							</div>
+						</div>
+					</section>
+					<section class="sec__profile-2">
+						<div class="profile-content">
+							<div class="profile-info">
+								<h3>Hari Bahadur Shrestha</h3>
+								<dl>
+									<dt>Work as: Manager</dt>
+									<dd><address>Manamaiju Kathmandu, Nepal</address></dd>
+									<dd><a href="tel:+9779861319308"><span class="icon-phone"></span>+977 9861319308</a></dd>
+									<dd><a href="mailto:Yogeshshrestha845@gmail.com"><span class="icon-mail"></span>yogeshshrestha845@gmail.com</a></dd>
+								</dl>
+							</div>
+							<div class="editor">
+								<span class="icon-edit"></span>
+								<span class="icon-cross"></span>
+							</div>
+						</div>
+						<div class="profile-content">
+							<div class="profile-info">
+								<h3>Company Information</h3>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Reprehenderit nobis exercitationem hic nihil dignissimos dolor nemo rerum deleniti excepturi, ad, magnam modi, atque nostrum pariatur possimus culpa, accusamus est amet.</p>
+							</div>
+							<div class="editor">
+								<span class="icon-edit"></span>
+								<span class="icon-cross"></span>
+							</div>
+						</div>
+						<div class="profile-content">
+							<div class="profile-info">
+								<h3>Employer Details</h3>
+								<ul>
+									<li>Manager</li>
+									<li>professtional web designer</li>
+									<li>Java developer</li>
+								</ul>
+							</div>
+							<div class="editor">
+								<span class="icon-edit"></span>
+								<span class="icon-cross"></span>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</main>
+
+		<footer id="footer">
+			<div class="footer-top">
+				<div class="container footer-wrap">	
+					<div class="logo">
+						<a href="index.html"><img src="images/logo.png" alt="Logo"> </a>
+					</div>
+					<div class="footer__content">
+						<nav class="footer__info employer__info">
+							<h3>Employers</h3>
+							<ul>
+								<li><a href="#">Register</a></li>
+								<li><a href="#">Login</a></li>
+								<li><a href="#">Search Candidates</a></li>
+								<li><a href="#">Automation</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</nav>
+						<nav class="footer__info candidates__info">
+							<h3>Candidate</h3>
+							<ul>
+								<li><a href="#">Register</a></li>
+								<li><a href="#">Login</a></li>
+								<li><a href="#">Search Jobs</a></li>
+								<li><a href="#">Find Me Job's Services</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</nav>
+						<div class="footer__info contact__info">
+							<h3>Contact Us</h3>
+							<dl>
+								<dt>Address</dt>
+								<dd><address><span class="icon-map"></span>
+									Manamaiju Kathmandu, 
+								Nepal</address></dd>
+								<dt>Phone</dt>
+								<dd><a href="tel:+9779861319308"><span class="icon-phone"></span>+977 9861319308</a></dd>
+								<dt>Email</dt>
+								<dd><a href="mailto:info@FindmeJob.com"><span class="icon-mail"></span>info@FindmeJob.com</a></dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="container footer-info">
+					<em>Privacy</em>
+					<em>Terms</em>
+					<em>&copy; 2022 All rights with <a href="index.html">Find Me Job</a></em>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "users/layout.html" %} {% load static %} {% block content %}
+<br /><br />
+<style>
+  .section__logout {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .btn {
+    text-decoration: none;
+    color: #0E75B2
+  }
+
+  .btn:hover {
+    color: #EEB31B;
+    transition: .3s ease-in-out;
+  }
+</style>
+<div class="container">
+  <section class="section__logout">
+    <div class="logout-info">
+        <h5 class="card-title">
+          <b>You have been logged out!</b>
+        </h5>
+        <form class="form-signin">
+          <div class="form-group">
+            <a class="btn" href="{% url 'login' %}">Login Again</a>
+          </div>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock content %}

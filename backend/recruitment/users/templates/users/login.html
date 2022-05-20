@@ -1,0 +1,172 @@
+{% extends "users/layout.html" %} {% load socialaccount %} {% block content %}
+<style>
+  .login__group {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .login__group a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+  }
+
+  .login__group a span {
+    margin-right: 4px;
+    font-size: 20px;
+  }
+
+  .google__login {
+    background: #EEB31B;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+  }
+
+  .google__login:hover {
+    background: #fff;
+    border: 1px solid #EEB31B;
+    transition: .3s ease-in-out;
+  }
+
+  .facebook__login {
+    background: #39f;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+  }
+
+  .facebook__login:hover {
+    background: #fff;
+    color: #39f !important;
+    border: 1px solid #39f;
+    transition: .3s ease-in-out;
+  }
+
+  .btn__block .text {
+    margin-bottom: 20px;
+    display: block;
+  }
+</style>
+
+<div class="container login__container">
+  <section class="account__section">
+    <h1>Login to Your Account</h1>
+    <h2>Accout Type</h2>
+    <form action="#" class="account__section__form">
+      <div class="mytabs">
+        <input type="radio" id="accountCandidate" name="mytabs" checked="checked">
+        <label for="accountCandidate">
+          <div class="account__candidate">
+            <span class="icon-profile"></span>
+            <h3>Candidate</h3>
+            <em>As a Candidate i want to find a suitable job</em>
+          </div>
+        </label>
+        <div class="tab">
+          <div class="form__group">
+            <label for="asf-username">Username</label>
+            <input type="text" name="username" id="asf-username" placeholder="Username">
+          </div>
+          <div class="form__group">
+            <label for="asf-password">Password</label>
+            <input type="password" name="password" id="asf-password" placeholder="Password">
+          </div>
+          <div class="form__holder">
+            <label class="checkbox">
+              <input type="checkbox" name="remember_me" id="asf-remember_me">
+              <span class="checkmark"></span>
+              <span class="text">Remember me?</span>
+            </label>
+            <a href="#" class="forgot__password">Forgot password?</a>
+          </div>
+          <div class="btn__holder">
+            <div class="btn__block">
+              <button type="submit" class="btn btn__primary">login</button>
+            </div>
+            <div class="btn__block">
+              <span class="text">Don't have an account? <a href="#">Register Now</a></span>
+            </div>
+            <div class="btn__block">	
+              <span class="text">OR</span>
+            </div>
+            <div class="btn__block">
+              <em class="text">Log in Using</em>
+              <form class="form-signin">
+                <div class="form-group login__group">
+                  <a
+                    class="google__login"
+                    href="{% provider_login_url 'google' %}"
+                    ><span class="icon-mail"></span>Google</a
+                  >
+                  <a
+                    class="facebook__login"
+                    href="{% provider_login_url 'facebook' %}"
+                    ><span class="icon-facebook"></span>Facebook</a
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <input type="radio" id="accountEmployer" name="mytabs" checked="checked">
+        <label for="accountEmployer">
+          <div class="account__employer">
+            <span class="icon-profile"></span>
+            <h3>Employer</h3>
+            <em>As a Employer i want too hire suitable candidate</em>
+          </div>
+        </label>
+        <div class="tab">
+          <div class="form__group">
+            <label for="asf-username">Username</label>
+            <input type="text" name="username" id="asf-username" placeholder="Username">
+          </div>
+          <div class="form__group">
+            <label for="asf-password">Password</label>
+            <input type="password" name="password" id="asf-password" placeholder="Password">
+          </div>
+          <div class="form__holder">
+            <label class="checkbox">
+              <input type="checkbox" name="remember_me" id="asf-remember_me">
+              <span class="checkmark"></span>
+              <span class="text">Remember me?</span>
+            </label>
+            <a href="#" class="forgot__password">Forgot password?</a>
+          </div>
+          <div class="btn__holder">
+            <div class="btn__block">
+              <button type="submit" class="btn btn__primary">login</button>
+            </div>
+            <div class="btn__block">
+              <span class="text">Don't have an account? <a href="#">Register Now</a></span>
+            </div>
+            <div class="btn__block">	
+              <span class="text">OR</span>
+            </div>
+            <div class="btn__block">
+              <em class="text">Log in Using</em>
+              <form class="form-signin">
+                <div class="form-group login__group">
+                  <a
+                    class="google__login"
+                    href="{% provider_login_url 'google' %}"
+                    ><span class="icon-mail"></span>Google</a
+                  >
+                  <a
+                    class="facebook__login"
+                    href="{% provider_login_url 'facebook' %}"
+                    ><span class="icon-facebook"></span>Facebook</a
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+</div>
+{% endblock %}

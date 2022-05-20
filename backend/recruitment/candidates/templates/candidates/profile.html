@@ -1,0 +1,159 @@
+{% extends "users/layout.html" %} {% load static %} {% load crispy_forms_tags %}
+{% block content %} <br /><br />
+<style>
+  .btn-block {
+    padding: 6px;
+    margin: 0 6px;
+    border-radius: 6px;
+  }
+
+  .btn1 {
+    background: #EEB31B;
+    color: #fff !important;
+  }
+
+  .btn2 {
+    background: #0E75B2;
+    color: #fff !important;
+  }
+  .btn3 {
+    background: #85F969;
+    color: #fff !important;
+  }
+  .cover__image {
+    background-color: #999;
+  }
+
+  /* .profile__image {
+    border-radius: 50%;
+    background: blue;
+  } */
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+</style>
+<div class="container">
+  <!-- for candidates users -->
+  <div class="profile__candidate">
+    <!-- <section class="sec__profile-1">
+      <div class="cover__image">
+        <img src="images/recruitment_works.png" alt="cover image">
+        <div class="editor">
+          <span class="icon-edit"></span>
+          <span class="icon-cross"></span>
+        </div>
+      </div>
+      <div class="profile__image">
+        <span class="icon-profile"></span>
+        <img src="images/profile3.jpg" alt="profile image">
+        <div class="editor">
+          <span class="icon-edit"></span>
+        </div>
+      </div>
+    </section> -->
+    <section class="sec__profile-2">
+      <div class="profile-content">
+        {% if request.user == u %}
+        <hr class="my-4" />
+        <a class="btn1 btn-block" href="{% url 'edit-profile' %}">Edit Profile</a><br />
+        <a class="btn2 btn-block" href="{% url 'saved-jobs' %}">Saved Jobs</a><br />
+        <a class="btn3 btn-block" href="{% url 'applied-jobs' %}">Applied Jobs</a>
+        {% endif %}
+      </div>
+      <div class="profile-content">
+        <div class="profile-info">
+          <h2>Name</h2>
+          <h3>{{ profile.full_name }}</h3>
+          <dl>
+            <dd>
+              <address>Country: {{ profile.country.name }}</address>
+            </dd>
+            <dd>
+              <address>Location: {{ profile.location }}</address>
+            </dd>
+            <!-- <dd><a href="tel:+9779861319308"><span class="icon-phone"></span>+977 9861319308</a></dd> -->
+            <dd><a href="mailto:{{ u.email }}"><span class="icon-mail"></span>Email: {{ u.email }}</a></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="profile-content">
+        <div class="profile-info">
+          <h3>Resume</h3>
+          {% if profile.resume %}
+          <p>
+            <a class="resume" href="{{ profile.resume.url }}">Click to View/Download</a>
+          </p>
+          {% else %}
+          <p>Resume: Not Provided</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="profile-content">
+        <div class="profile-info">
+          <h3>Skills ({{ skills.count }})</h3>
+          {% if request.user != u %}
+          <ul>
+            {% for skill in skills %}
+            <li>{{skill.skill}}</li>
+            {% endfor %}
+            {% else %}
+            <form class="form-signin" method="POST">
+              {% csrf_token %}
+              <fieldset class="form-group">
+                <br />
+                {{ form|crispy }}
+              </fieldset>
+              <div class="btn__holder">
+                <button class="btn btn-lg btn-outline-primary btn-block" type="submit">
+                  Add Skill</button><br />
+              </div>
+            </form>
+            <br />
+            {% if skills %}
+            <form class="form-signin" action="{% url 'skill-delete' %}" method="POST">
+              {% csrf_token %} {% for skill in skills %}
+              <div cass="form__checkbox">
+                <input class="mr-2" type="checkbox" value="{{ skill.id }}" name="choices" />{{ skill.skill }}
+                <style>
+                  .mr-2 {
+                    margin-right: 10px;
+                  }
+                </style>
+              </div>
+              {% endfor %}
+              <br />
+              <div class="btn__holder">
+                <button class="btn btn-lg btn-outline-danger btn-block" type="submit" name="delete">
+                  Delete Selected Skills</button><br />
+              </div>
+            </form>
+            {% endif %} {% endif %}
+          </ul>
+        </div>
+      </div>
+      <div class="profile-content">
+        <div class="profile-info">
+          <h3>Looking For</h3>
+          <dd>{{ profile.looking_for }}</dd>
+        </div>
+
+      </div>
+      <div class="profile-content">
+        <div class="profile-info">
+          <h3>Education</h3>
+          <dd>{{ profile.grad_year }}</dd>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- <form>
+    <label for="file-upload" class="custom-file-upload">
+      <span class="fa fa-cloud-upload"></span> Upload CV
+    </label>
+    <input id="file-upload" name='upload_cont_img' type="file" style="display:none;">
+  </form> -->
+</div>
+{% endblock content %}

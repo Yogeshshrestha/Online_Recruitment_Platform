@@ -1,0 +1,146 @@
+{% extends "users/layout.html" %} {% load static %} {% block content %}
+<style>
+  .section__candidate-details {
+    margin-bottom: 40px;
+    background: #fff;
+    padding: 20px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col {
+    border: 1px solid #39f;
+    padding: 8px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    width: 100%;
+  }
+
+  .card span a {
+    text-decoration: none;
+  }
+
+  .card span a:hover {
+    color: #EEB31B;
+    transition: .3s ease-in-out;
+  }
+
+  dd {
+    margin-left: 0;
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  address {
+    margin-bottom: 8px;
+  }
+
+  .link {
+    color: #0E75B2;
+    margin-bottom: 8px;
+  }
+
+  .text {
+    margin-bottom: 8px;
+  }
+
+  @media (min-width: 768px) {
+    dd {
+      font-size: 14px;
+    }
+
+    .row {
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    .col {
+      width: 30%;
+    }
+  }
+
+  .option {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 6px;
+  }
+
+  .option a {
+    text-decoration: none;
+    padding: 6px;
+    border-radius: 6px;
+  }
+
+  .btn-visit {
+    background: #EEB31B;
+    color: #fff;
+    border: 1px solid transparent;
+    transition: .3s ease-in-out;
+  }
+
+  .btn-visit:hover{
+    background: #fff;
+    color: #EEB31B;
+    border: 1px solid #EEB31B;
+  }
+</style>
+
+<div class="container">
+  <section class="section__candidate-details">
+    <h3>
+      <b>Seleted Applicants for {{job.title}}</b>
+    </h3>
+    <br />
+    {% if profiles %}
+    <div class="row">
+      {% for profile in profiles %}
+      <div class="col">
+        <div class="card">
+          <span>
+            <a href="{% url 'profile-view' profile.slug %}">
+              {% if profile.full_name %}
+              <h3>
+                <b>{{profile.full_name}}</b>
+              </h3>
+              {% else %}
+              <h3>
+                <b>{{profile.user.username}}</b>
+              </h3>
+              {% endif %}
+            </a>
+            <dd>
+              <a href="{{profile.user.email}}">{{profile.user.email}}</a></a><br />
+            </dd>
+            <address>{{profile.country.name}}</address>
+            {% if profile.resume %}
+            <a class="link" href="{{profile.resume.url}}">Click here to view the resume</a>
+            {% else %}
+            <p class="text">No Resume Provided!</p>
+            {% endif %}
+          </span>
+
+          <div class="option">
+            <a
+              class="btn-visit"
+              href="{% url 'profile-view' profile.slug %}"
+              >Visit Profile
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% else %}
+  <section class="section__candidate-details">
+    <p>
+      No applicant has been selected till now! Select some
+      <a href="{% url 'applicant-list' job.slug %}">applicant</a> first!
+    </p>
+  </section>
+  {% endif %}
+</div>
+{% endblock content %}

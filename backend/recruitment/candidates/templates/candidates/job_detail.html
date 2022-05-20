@@ -1,0 +1,230 @@
+{% extends "users/layout.html" %} {% load static %} {% block content %}
+<br /><br />
+<style>
+  .job__details {
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 768px) {
+    .job__details {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+    }
+  }
+
+  .job__row {
+    width: 100%;
+    background: #F0F8FF;
+    padding: 20px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+
+  .aside__jobs {
+    width: 100%;
+    padding: 0 10px 10px;
+  }
+
+  .job__skills {
+    margin-right: 8px;
+  }
+
+  .job__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .job__manage {
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) {
+    .job__manage {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      flex-direction: row;
+      /* align-items: start; */
+    }
+
+    .job__row {
+      width: 65%;
+    }
+
+    .aside__jobs {
+      width: 30%;
+    }
+  }
+
+  .job__manage a {
+    display: block;
+    margin-right: 10px;
+  }
+
+  .btn__link {
+    padding: 6px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  .btn__link:hover{
+    opacity: 0.6;
+    transition: .3s ease-in-out;
+  }
+
+  .btn-yellow {
+    background: #eeb31b;
+    color: #fff !important;
+  }
+
+  .btn-add {
+    background: #0e75b2;
+    color: #fff !important;
+  }
+
+  .btn-remove {
+    background: rgb(240, 41, 41);
+    color: #fff !important;
+  }
+
+  .btn-applied {
+    background: #85f969;
+    color: #fff !important;
+  }
+
+  .job__tops {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .job__top__list {
+    border: 1px solid #39f;
+    padding: 12px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    /* height: 200px; */
+  }
+
+  .link {
+    color: #0e75b2;
+    text-decoration: none;
+  }
+
+  .link:hover{
+    opacity: 0.6;;
+    transition: .3s ease-in-out;
+  }
+
+  .text {
+    overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+  }
+</style>
+
+<div class="container job__container">
+  <section class="job__details">
+    <div class="job__row">
+      <div class="col-md-12">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <div class="job__content">
+              <div class="content-info">
+                <h3>
+                  <b>{{job.title}} ({{job.job_type}})</b>
+                </h3>
+                <p style="font-size: 18px">{{job.company}}, {{job.location}}</p>
+              </div>
+
+              <div class="job__manage">
+                {% if job.link %}
+                <a class="btn__link btn-yellow btn-lg" href="{{job.link}}"
+                  ><b>Apply On Company's Website</b></a
+                >
+                {% else %} {% if not apply_button %} {% if profile.resume %}
+                <a
+                  class="btn__link btn-yellow btn-lg"
+                  href="{% url 'apply-job' job.slug %}"
+                  ><b>Apply Now</b></a
+                >
+                {%else %}
+                <a
+                  class="btn__link btn-add btn-lg"
+                  href="{% url 'edit-profile' %}"
+                  ><b>Add Resume to apply!</b></a
+                >
+                {%endif%} {% else %}
+                <a
+                  class="btn__link btn-applied btn-lg"
+                  href="{% url 'applied-jobs' %}"
+                  ><b>Applied!</b></a
+                >
+                {% endif %} {%endif%} {% if not save_button %}
+                <a
+                  class="btn__link btn-add btn-lg ml-2"
+                  href="{% url 'save-job' job.slug %}"
+                  ><b>Save</b></a
+                >
+                {% else %}
+                <a
+                  class="btn__link btn-remove btn-lg ml-2"
+                  href="{% url 'remove-job' job.slug %}"
+                  ><b>Remove</b></a
+                >
+                {% endif %}
+              </div>
+            </div>
+            <hr my-2 />
+            <span style="font-size: 18px"><b>Job Description</b></span>
+            <p style="white-space: pre-wrap; font-size: 16px">
+              {{ job.description }}
+            </p>
+            <hr my-2 />
+            <p>
+              <b class="mr-2 job__skills">Skills Required:</b>{{job.skills_req}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="aside__jobs">
+      <h3>Similar Jobs</h3>
+      <div class="job__tops">
+        {% for rel_job in relevant_jobs %}
+        <div class="job__top__list">
+          <div class="card job__top-info">
+            <span>
+              <a class="link" href="{% url 'job-detail' rel_job.slug %}">
+                <h4>
+                  <b>{{rel_job.title}} ({{rel_job.job_type}})</b>
+                </h4>
+              </a>
+              <p>
+                {{rel_job.company}}<br />{{rel_job.location}}
+              </p>
+              <p>
+                {{rel_job.description|truncatewords:30}} -
+              </p>
+              <a class="link" href="{% url 'job-detail' rel_job.slug %}">Read More</a>
+            </span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </aside>
+  </section>
+  <!-- <hr my-1 /> -->
+</div>
+{% endblock content %}

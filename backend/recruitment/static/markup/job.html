@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Job</title>
+	<link media="all" rel="stylesheet" href="css/main.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+	<script>
+		window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js" defer><\/script>')
+	</script>
+	<script src="js/jquery.main.js" defer></script>
+</head>
+<body>
+	<div id="wrapper">
+		<header id="header">
+			<div class="header-top">
+				<div class="container">
+					<ul>
+						<li><a href="#">Find ME Job’s Services</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">FAQ</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="header-bottom">
+				<div class="container header-wrap">
+					<div class="logo">
+						<a href="index.html"><img src="images/logo.png" alt="Logo"></a> 
+					</div>
+					<!-- to hide this navigation to user after login -->
+					<nav id="nav" class="mob-hide">
+						<ul class="nav-list hide">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Jobs</a></li>
+							<li><a href="#">Candidates</a></li>
+							<li><a href="#">Login</a></li>
+							<li><a href="#">Register</a></li>
+						</ul>
+						<!-- to hide this navigation to candidates user -->
+						<ul class="nav-list candidate-hide user-hide mob-hide">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Candidates</a></li>
+							<li><a href="#">Manage</a></li>
+							<li><a href="#">Settings</a></li>
+							<div class="dropdown">
+								<a href="#" id="phoneType" class="dropdown__opener close"><span class="icon-profile"></span><span class="icon-down-arrow"></span></a>
+								<ul class="dropdown-menu">
+									<li class="selected"><a href="#"><h3>Name</h3></a></li>
+									<li><a href="#">Settings</a></li>
+									<li><a href="#">Logout</a></li>
+								</ul>
+							</div>
+						</ul>
+						<!-- to hide this navigation to employer user -->
+						<ul class="nav-list employer-hide user-hide mob-hide">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Jobs</a></li>
+							<li><a href="#">My Status</a></li>
+							<li><a href="#">Settings</a></li>
+							<li><a href="#"><span class="icon-profile"></span><span class="icon-down-arrow"></span></a></li>
+						</ul>
+					</nav>
+
+					<!-- mobile navigation -->
+					<a href="#" class="menu__opener close">
+						<span class="icon-menu"></span>
+					</a>
+					<nav id="sideNav">
+						<a href="#" class="menu__opener close">
+							<span class="icon-cross"></span>
+						</a>
+						<ul class="side-nav-list hide">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Candidates</a></li>
+							<li><a href="#">Login</a></li>
+							<li><a href="#">Register</a></li>
+						</ul>
+
+						<ul class="side-nav-list candidate-hide user-hide">
+							<li><a href="#"><span class="icon-profile"></span></a></li>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Candidates</a></li>
+							<li><a href="#">Manage</a></li>
+							<li><a href="#">Settings</a></li>
+							<li><a href="#">LogOut</a></li>
+						</ul>
+
+						<ul class="side-nav-list employer-hide user-hide">
+							<li><a href="#"><span class="icon-profile"></span></a></li>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Jobs</a></li>
+							<li><a href="#">My Status</a></li>
+							<li><a href="#">Settings</a></li>
+							<li><a href="#">LogOut</a></li>
+						</ul>
+					</nav>
+				</div>		
+			</div>
+		</header>
+		<main id="main">
+			<div class="container job__container">
+				<section class="section__job">
+					<div class="btn__holder">
+						<input type="button" class="job__button" name="create" placeholder="create job">			
+					</div>
+					<div class="job__create">
+						
+					</div>
+				</section>
+				<section class="section__job-1">
+					<h3>Job By Catagories</h3>
+					<div class="job__catagories">
+						<ul class="job__catagory">
+							<h4>Banking Sector</h4>
+							<li><a href="#">Finance Advisour</a></li>
+							<li><a href="#">IBPS PO</a></li>
+							<li><a href="#">Auditors</a></li>
+							<li><a href="#">RBI Grade B</a></li>
+							<li><a href="#">SBI PO</a></li>
+						</ul>
+						<ul class="job__catagory">
+							<h4>Medical Sector</h4>
+							<li><a href="#">Clinical analyst</a></li>
+							<li><a href="#">Medical manager</a></li>
+							<li><a href="#">Programmer analyst</a></li>
+							<li><a href="#">Software engineer</a></li>
+						</ul>
+						<ul class="job__catagory">
+							<h4>Military Sector</h4>
+							<li><a href="#">Cyberwarfare engineer</a></li>
+							<li><a href="#">Geospatial imaging officer</a></li>
+							<li><a href="#">Intelligence specialist</a></li>
+						</ul>
+						<ul class="job__catagory">
+							<h4>Industry Sector</h4>
+							<li><a href="#">Ethical Hacker</a></li>
+							<li><a href="#">Software Engineering</a></li>
+							<li><a href="#">Network Administrator</a></li>
+							<li><a href="#">Full stack Develop</a></li>
+							<li><a href="#">Data Scientist</a></li>
+						</ul>
+					</div>
+				</section>
+				<section class="section__job-2">
+					<h1>Search Jobs</h1>
+					<div class="row">
+						<div class="col-1">
+							<div class="form__group">
+								<label for="jobType">Job Type</label>
+								<input type="text" name="type" placeholder="Enter Job Title, Skills, Type or Company">
+							</div>
+						</div>
+						<div class="col-2">
+							<div class="form__group">
+								<label for="jobLocation">Job Location</label>
+								<input type="text" name="location" placeholder="Enter the job location">								
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="form__group">
+								<input id="searchBar" type="text" name="searchBar" placeholder="Search">
+								<div class="btn__holder">
+									<button type="submit">Search Job</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="section__job-3">
+					<div class="job__content">
+						<h2>Showing number of jobs</h2>
+						<div class="job__list">
+							<div class="job-info">
+								<img src="images/profile1.jpg" alt="bashu dev">
+								<h3>Data Scientist</h3>
+								<p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Rerum nobis consequuntur ratione quasi temporibus exercitationem deserunt aspernatur, voluptatibus quis id itaque dolor cupiditate, porro expedita explicabo. Mollitia culpa repudiandae necessitatibus.</p>
+								<dd>
+									<address><span class="icon-map"></span>Balaju, Kathmandu</address>
+								</dd>
+								<div class="btn__holder">
+									<button id="applyNow" type="submit">Apply Now</button>
+									<a href="#">View More</a>
+								</div>
+							</div>
+							<div class="job-info">
+								<img src="images/profile2.jpg" alt="bashu dev">
+								<h3>Data Scientist</h3>
+								<p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Rerum nobis consequuntur ratione quasi temporibus exercitationem deserunt aspernatur, voluptatibus quis id itaque dolor cupiditate, porro expedita explicabo. Mollitia culpa repudiandae necessitatibus.</p>
+								<dd><address><span class="icon-map"></span>Balaju, Kathmandu</address></dd>
+								<div class="btn__holder">
+									<button id="applyNow" type="submit">Apply Now</button>
+									<a href="#">View More</a>
+								</div>
+							</div>
+							<div class="job-info">
+								<img src="images/profile2.jpg" alt="bashu dev">
+								<h3>Data Scientist</h3>
+								<p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Rerum nobis consequuntur ratione quasi temporibus exercitationem deserunt aspernatur, voluptatibus quis id itaque dolor cupiditate, porro expedita explicabo. Mollitia culpa repudiandae necessitatibus.</p>
+								<dd><address><span class="icon-map"></span>Balaju, Kathmandu</address></dd>
+								<div class="btn__holder">
+									<button id="applyNow" type="submit">Apply Now</button>
+									<a href="#">View More</a>
+								</div>
+							</div>
+							<div class="job-info">
+								<img src="images/profile1.jpg" alt="bashu dev">
+								<h3>Data Scientist</h3>
+								<p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Rerum nobis consequuntur ratione quasi temporibus exercitationem deserunt aspernatur, voluptatibus quis id itaque dolor cupiditate, porro expedita explicabo. Mollitia culpa repudiandae necessitatibus.</p>
+								<dd>
+									<address><span class="icon-map"></span>Balaju, Kathmandu</address>
+								</dd>
+								<div class="btn__holder">
+									<button id="applyNow" type="submit">Apply Now</button>
+									<a href="#">View More</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="aside__content-info">
+						<aside class="job__top__content">
+							<h2>Top Jobs</h2>
+							<div class="job__top__list">
+								<div class="job__top-info">
+									<img src="images/profile3.jpg" alt="job image">
+									<div>
+										<h3>UI/UX designer</h3>
+										<p>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Corrupti reiciendis, dolores voluptates repellendus voluptate beatae maiores, quidem id incidunt ut natus, quibusdam repudiandae ipsa tenetur obcaecati aut. Obcaecati, sed voluptatum.</p>
+									</div>
+								</div>
+								<div class="job__top-info">
+									<img src="images/profile3.jpg" alt="job image">
+									<div>
+										<h3>Java Developer</h3>
+										<p>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Corrupti reiciendis, dolores voluptates repellendus voluptate beatae maiores, quidem id incidunt ut natus, quibusdam repudiandae ipsa tenetur obcaecati aut. Obcaecati, sed voluptatum.</p>
+									</div>
+								</div>
+								<div class="job__top-info">
+									<img src="images/profile1.jpg" alt="job image">
+									<div>
+										<h3>Java Developer</h3>
+										<p>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Corrupti reiciendis, dolores voluptates repellendus voluptate beatae maiores, quidem id incidunt ut natus, quibusdam repudiandae ipsa tenetur obcaecati aut. Obcaecati, sed voluptatum.</p>
+									</div>
+								</div>
+							</div>
+						</aside>
+					</div>
+				</section>
+			</div>
+		</main>	
+		<footer id="footer">
+			<div class="footer-top">
+				<div class="container footer-wrap">	
+					<div class="logo">
+						<a href="index.html"><img src="images/logo.png" alt="Logo"> </a>
+					</div>
+					<div class="footer__content">
+						<nav class="footer__info employer__info">
+							<h3>Employers</h3>
+							<ul>
+								<li><a href="#">Register</a></li>
+								<li><a href="#">Login</a></li>
+								<li><a href="#">Search Candidates</a></li>
+								<li><a href="#">Automation</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</nav>
+						<nav class="footer__info candidates__info">
+							<h3>Candidate</h3>
+							<ul>
+								<li><a href="#">Register</a></li>
+								<li><a href="#">Login</a></li>
+								<li><a href="#">Search Jobs</a></li>
+								<li><a href="#">Find Me Job's Services</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</nav>
+						<div class="footer__info contact__info">
+							<h3>Contact Us</h3>
+							<dl>
+								<dt>Address</dt>
+								<dd><address><span class="icon-map"></span>
+									Manamaiju Kathmandu, 
+								Nepal</address></dd>
+								<dt>Phone</dt>
+								<dd><a href="tel:+9779861319308"><span class="icon-phone"></span>+977 9861319308</a></dd>
+								<dt>Email</dt>
+								<dd><a href="mailto:info@FindmeJob.com"><span class="icon-mail"></span>info@FindmeJob.com</a></dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="container footer-info">
+					<em>Privacy</em>
+					<em>Terms</em>
+					<em>&copy; 2022 All rights with <a href="index.html">Find Me Job</a></em>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>

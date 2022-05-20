@@ -1,0 +1,306 @@
+{% load static %} {% load pwa %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  {% progressive_web_app_meta %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" type="text/css" href="{% static 'markup/css/main.css' %}" />
+  <link rel="icon" type="image/png" href="{% static 'images/logo-tab.png' %}"/>
+
+  {% block cssfiles %}{% endblock cssfiles %}
+  <title>Recruitment</title>
+  <link rel="stylesheet" href="{% static '../../static/main.css' %}" />
+</head>
+
+<body>
+  <div id="wrapper">
+    <header id="header">
+      <div class="header-top">
+        <div class="container">
+          <ul>
+            <li><a href="#">Find ME Job’s Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="header-bottom">
+        <div class="container header-wrap">
+          {% if not rec_navbar %}
+          <div class="logo">
+            <a href="{% url 'detail-candidates' %}"><img src="{% static 'images/logo.png' %}" alt="Logo" />
+            </a>
+          </div>
+          <nav id="nav" class="mob-hide">
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
+            <ul class="nav-list hide">
+              <li>
+                <a class="nav-item nav-link {{ rec_home_page }}" href="{% url 'detail-recruiters' %}">Home</a>
+              </li>
+              <li>
+                <a class="nav-item nav-link {{ profile_page }}" href="{% url 'my-profile' %}">Profile</a>
+              </li>
+              <li>
+                <a class="nav-item nav-link {{ home_page }}" href="{% url 'home' %}">Job</a>
+              </li>
+              <!-- <li><a class="nav-item nav-link {{ intel_page }}" href="{% url 'intelligent-search' %}">Jobs</a></li> -->
+              <li>
+                <a class="nav-item nav-link {{ account_page }}" href="{% url 'account' %}">Setting</a>
+              </li>
+              {% if user.is_authenticated %}
+              <!-- <li>
+                  <a class="nav-item nav-link" href="{% url 'add-job' %}"
+                    >Employers</a
+                  >
+                </li> -->
+              <div class="dropdown">
+                <a href="#" id="phoneType" class="dropdown__opener close"><span class="icon-profile"></span><span
+                    class="icon-down-arrow"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'my-profile' %}">
+                      <h2>{{user.username}}</h2>
+                    </a></li>
+                  <!-- <li><a href="{% url 'account' %}">Settings</a></li> -->
+                  <li>
+                    <a class="nav-item nav-link" href="{% url 'detail-recruiters' %}">Candidate</a>
+                  </li>
+                  <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+              </div>
+              {% else %}
+              <li>
+                <a class="nav-item nav-link btn" href="{% url 'login' %}">Login</a>
+              </li>
+              <li>
+                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+              </li>
+          </nav>
+          <a href="#" class="menu__opener close">
+            <span class="icon-menu"></span>
+          </a>
+          <nav id="sideNav">
+            <a href="#" class="menu__opener close">
+              <span class="icon-cross"></span>
+            </a>
+            <ul class="side-nav-list hide">
+              <li><a href="{% url 'detail-recruiters' %}">Home</a></li>
+              <li><a href="{% url 'my-profile' %}">Profile</a></li>
+              <li><a href="{% url 'home' %}">Candidates</a></li>
+              <li><a href="{% url 'account' %}">Setting</a></li>
+              <li><a href="{% url 'login' %}">Login</a></li>
+              <li><a href="{% url 'register' %}">Register</a></li>
+            </ul>
+          </nav>
+          <!-- <li>
+                  <a
+                    class="nav-item nav-link"
+                    href="{% url 'detail-recruiters' %}"
+                    >Employers</a
+                  >
+                </li> -->
+          {% endif %}
+          <!-- </ul> -->
+          <!-- </div> -->
+
+          {% else %}
+          <div class="logo">
+            <a href="{% url 'detail-recruiters' %}"><img src="{% static 'images/logo.png' %}" alt="Logo" />
+            </a>
+          </div>
+          <nav id="nav" class="mob-hide">
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
+            <ul class="nav-list mob-hide">
+              <!-- <div class="navbar-nav"> -->
+              <li>
+                <a class="nav-item nav-link {{ rec_home_page }}" href="{% url 'detail-recruiters' %}">Home</a>
+              </li>
+              <li>
+                <a class="nav-item nav-link {{ add_job_page }}" href="{% url 'add-job' %}">Job</a>
+              </li>
+              <li>
+                <a class="nav-item nav-link {{ search_candidates_page }}"
+                  href="{% url 'search-candidates' %}">Candidate</a>
+              </li>
+              <li>
+                <a class="nav-item nav-link {{ manage_jobs_page }}" href="{% url 'job-list' %}">Manage</a>
+              </li>
+              {% if user.is_authenticated %}
+              <div class="dropdown">
+                <a href="#" id="phoneType" class="dropdown__opener close"><span class="icon-profile"></span><span
+                    class="icon-down-arrow"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'my-profile' %}">
+                      <h2>{{user.username}}</h2>
+                    </a></li>
+                  <!-- <li><a href="{% url 'setting' %}">Settings</a></li> -->
+                  <li>
+                    <a class="nav-item nav-link" href="{% url 'home' %}">Employer</a>
+                  </li>
+                  <!-- </div> -->
+                  <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+              </div>
+              <a href="#" class="menu__opener close">
+                <span class="icon-menu"></span>
+              </a>
+              <nav id="sideNav">
+                <a href="#" class="menu__opener close">
+                  <span class="icon-cross"></span>
+                </a>
+                <ul class="side-nav-list hide">
+                  <li><a href="{% url 'detail-recruiters' %}">Home</a></li>
+                  <li>
+                    <a href="{% url 'add-job' %}">Job</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'search-candidates' %}">Candidates</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'job-list' %}">Manage</a>
+                  </li>
+                  <li><a href="{% url 'logout' %}">LogOut</a></li>
+                </ul>
+              </nav>
+              {% else %}
+              <li>
+                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+              </li>
+              {% endif %}
+              <!-- <li>
+                  <a class="nav-item nav-link" href="{% url 'home' %}"
+                    >Candidates</a
+                  >
+                </li> -->
+              <!-- </div> -->
+            </ul>
+          </nav>
+          <a href="#" class="menu__opener close">
+            <span class="icon-menu"></span>
+          </a>
+          <nav id="sideNav">
+            <a href="#" class="menu__opener close">
+              <span class="icon-cross"></span>
+            </a>
+            <ul class="side-nav-list hide">
+              <li><a href="{% url 'detail-recruiters' %}">Home</a></li>
+              <li><a href="{% url 'my-profile' %}">Profile</a></li>
+              <li><a href="{% url 'home' %}">Candidates</a></li>
+              <li><a href="{% url 'account' %}">Setting</a></li>
+              <li><a href="{% url 'login' %}">Login</a></li>
+              <li><a href="{% url 'register' %}">Register</a></li>
+            </ul>
+          </nav>
+          {% endif %}
+        </div>
+      </div>
+    </header>
+
+    <div class="container">{% block content %}{% endblock content %}</div>
+
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container footer-wrap">
+          <div class="logo">
+            <a href="index.html"><img src="{% static 'images/logo.png' %}" alt="Logo" />
+            </a>
+          </div>
+          <div class="footer__content">
+            <nav class="footer__info employer__info">
+              <h3>Employers</h3>
+              <ul>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Search Candidates</a></li>
+                <li><a href="#">Automation</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </nav>
+            <nav class="footer__info candidates__info">
+              <h3>Candidate</h3>
+              <ul>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Search Jobs</a></li>
+                <li><a href="#">Find Me Job's Services</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </nav>
+            <div class="footer__info contact__info">
+              <h3>Contact Us</h3>
+              <dl>
+                <dt>Address</dt>
+                <dd>
+                  <address>
+                    <span class="icon-map"></span> Manamaiju Kathmandu, Nepal
+                  </address>
+                </dd>
+                <dt>Phone</dt>
+                <dd>
+                  <a href="tel:+9779861319308"><span class="icon-phone"></span>+977 9861319308</a>
+                </dd>
+                <dt>Email</dt>
+                <dd>
+                  <a href="mailto:info@FindmeJob.com"><span class="icon-mail"></span>info@FindmeJob.com</a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-info">
+          <em>Privacy</em>
+          <em>Terms</em>
+          <em>&copy; 2022 All rights with
+            <a href="index.html">Find Me Job</a></em>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- JS Files -->
+  <script>
+    (function () {
+      initBurgerMenu('.menu__opener', 'nav--active')
+      initBurgerMenu('.search__opener', 'search--active')
+      initBurgereMenu('.dropdown__opener', 'dropdown--active')
+    })()
+
+
+    function initBurgerMenu(selector, activeClass = 'active') {
+      var isOpen = false
+      var body = document.querySelector('body')
+
+      document.querySelectorAll(selector)
+        .forEach(function (menuLink) {
+          menuLink.addEventListener('click', function (event) {
+            event.preventDefault()
+
+            if (isOpen)
+              body.classList.remove(activeClass)
+            else
+              body.classList.add(activeClass)
+
+            isOpen = !isOpen
+          })
+        })
+    }
+  </script>
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+  {% block jsfiles %}{% endblock jsfiles %}
+</body>
+
+</html>

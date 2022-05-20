@@ -1,0 +1,126 @@
+{% extends "users/layout.html" %} {% load static %} {% load crispy_forms_tags %}
+{% block content %} <br />
+<style>
+  .input__job {
+    /* width: 100%;
+    height: auto; */
+    -webkit-transition: background 0.3s ease-in-out, color 0.3s ease-in-out,
+      0.3s 0.3s ease-in-out, ease-in-out 0.3s ease-in-out,
+      -webkit-transition 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out,
+      0.3s 0.3s ease-in-out, ease-in-out 0.3s ease-in-out,
+      -webkit-transition 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out,
+      transition 0.3s ease-in-out, 0.3s 0.3s ease-in-out,
+      ease-in-out 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out,
+      transition 0.3s ease-in-out, 0.3s 0.3s ease-in-out,
+      ease-in-out 0.3s ease-in-out, -webkit-transition 0.3s ease-in-out;
+    padding: 0.75rem;
+    margin: 1rem 0;
+    color: #fff;
+    background: #05466d;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    border: 1px solid #39f;
+    border-radius: 3px;
+    outline: 1px solid transparent;
+    width: 100%;
+  }
+
+  .input__job:focus {
+    border-color: #0a0944;
+  }
+
+  .input-desc {
+    width: 100%;
+    height: 150px;
+  }
+
+  .col {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .col {
+      width: 50%;
+    }
+  }
+
+  .section__edit {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+
+  .form-signin {
+    padding-left: 20px;
+  }
+
+  .form-signin input {
+    background: rgb(240, 41, 41);
+    border-radius: 8px;
+    padding: 6px;
+	outline: 1px solid transparent;
+	border: 1px solid transparent;
+	color: #fff;
+	transition: 0.3s ease-in-out;
+    margin-right: 8px;
+  }
+
+  .form-signin input:hover {
+      background: #fff;
+      color: rgb(240, 41, 41);
+      border: 1px solid rgb(240, 41, 41);
+  }
+
+  .form-signin a {
+      text-decoration: none;
+  }
+
+  .form-signin a:hover {
+	transition: 0.3s ease-in-out;
+    opacity: 0.6;
+  }
+
+</style>
+<div class="container">
+  {% if request.user == job.recruiter %}
+  <section class="section__edit">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3>
+            <b>Delete {{job.title}} Job Post</b>
+          </h3>
+          <span style="font-size: 14px"
+            ><p>
+              (Please read the helper texts provided with the fields carefully.
+              <br />Deleting this job means you will deleting permanently!)
+            </p></span
+          >
+          <form class="form-signin" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            Are you want to delete this item ?
+            <input class="delete__job" type="submit" value="Yes" />
+            <a href="{% url 'add-job-detail' job.slug %}">Cancel </a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="row">
+    <div class="col">
+      <div class="card card-signin">
+        <div class="card-body">
+          <h3>You do not have access to this page!</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  {% endif %}
+</div>
+{% endblock content %}
